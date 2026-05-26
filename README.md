@@ -476,11 +476,6 @@ python app.py
 
 ---
 
-## Step 6: Open Browser
-
-Visit:
-
----
 
 # Default Admin Credentials
 
@@ -542,7 +537,3 @@ The Event Ticket Booking System provides a simple and efficient platform for man
 
 ---
 
-# License
-
-This project is developed for educational purposes only.
->>>>>>> 3d136f6a8edcae64916e70e4de9f8e234d7bf922
