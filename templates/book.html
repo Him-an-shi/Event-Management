@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ticket Booking - Book Tickets</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Event Ticket Booking System</h1>
+        <nav>
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <a href="/events" class="nav-link">View Events</a>
+            <a href="/add_event" class="nav-link">Add Event</a>
+            <a href="/bookings" class="nav-link">My Bookings</a>
+            <a href="/logout" class="nav-link">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="flash">{{ messages[0] }}</div>
+                {% endif %}
+                {% endwith %}
+                <h2>Book Tickets</h2>
+                <p>Event: {{ event[0] }} - Date: {{ event[1] }} - Venue: {{ event[2] }} - Available Seats: {{ event[3] }}</p>
+                <form id="booking-form" class="form" method="post">
+                    <div class="form-group">
+                        <label for="num-tickets">Number of Tickets:</label>
+                        <input type="number" id="num-tickets" name="numTickets" min="1" max="{{ event[3] }}" required>
+                    </div>
+                    <button type="submit" class="btn">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="../static/script.js"></script>
+</body>
+</html>

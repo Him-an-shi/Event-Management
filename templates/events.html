@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ticket Booking - Events</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Event Ticket Booking System</h1>
+        <nav>
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <a href="/events" class="nav-link active">View Events</a>
+            <a href="/add_event" class="nav-link">Add Event</a>
+            <a href="/bookings" class="nav-link">My Bookings</a>
+            <a href="/logout" class="nav-link">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Available Events</h2>
+                <table id="events-table">
+                    <thead>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Venue</th>
+                            <th>Available Seats</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in events %}
+                        <tr>
+                            <td>{{ event[1] }}</td>
+                            <td>{{ event[2] }}</td>
+                            <td>{{ event[3] }}</td>
+                            <td>{{ event[4] }}</td>
+                            <td><a href="/book/{{ event[0] }}" class="btn">Book</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="../static/script.js"></script>
+</body>
+</html>

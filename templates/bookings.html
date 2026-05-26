@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ticket Booking - My Bookings</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Event Ticket Booking System</h1>
+        <nav>
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <a href="/events" class="nav-link">View Events</a>
+            <a href="/add_event" class="nav-link">Add Event</a>
+            <a href="/bookings" class="nav-link active">My Bookings</a>
+            <a href="/logout" class="nav-link">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>My Bookings</h2>
+                {% if bookings %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Event Name</th>
+                            <th>Tickets</th>
+                            <th>Booking Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking[0] }}</td>
+                            <td>{{ booking[1] }}</td>
+                            <td>{{ booking[2] }}</td>
+                            <td>{{ booking[3] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>No bookings found.</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+    <script src="../static/script.js"></script>
+</body>
+</html>
